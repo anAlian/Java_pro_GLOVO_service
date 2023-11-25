@@ -1,7 +1,7 @@
 package HW3;
 
 public class Cat extends Animal{
-   private int maxLenRun=200;
+   final int maxLenRun=200;
     public static int numberofobjectsCat=0;
 
     public Cat(String name) {

@@ -1,8 +1,8 @@
 package HW3;
 
 public class Dog extends Animal{
-    private int maxLenRun=500;
-    private int maxLenSwim =10;
+    final int maxLenRun=500;
+    final int maxLenSwim =10;
     public static int numberofobjectsDog=0;
     public Dog(String name) {
         super(name);
