@@ -2,8 +2,8 @@ package HW3;
 
 public class Animal {
     public String name;
-    private int maxLenRun;
-    private int maxLenSw;
+    private int maxLenRun=0;
+    private int maxLenSw=0;
 
 
     public Animal(String name) {
