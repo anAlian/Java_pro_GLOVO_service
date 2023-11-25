@@ -4,10 +4,12 @@ public class Animal {
     public String name;
     final int maxLenRun=0;
     final int maxLenSw=0;
+    public static int numberofobjects=0;
 
 
     public Animal(String name) {
         this.name = name;
+        numberofobjects++;
     }
     public void run(int obstacleLength){
 
