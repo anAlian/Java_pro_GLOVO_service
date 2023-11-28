@@ -22,7 +22,7 @@ public class Task5 {
 
             output.append(str.charAt(i));
         }
-        if (str.equals(output.toString())) {
+        if (str.contentEquals(output)) {
             answer = true;
         }
         return answer;
