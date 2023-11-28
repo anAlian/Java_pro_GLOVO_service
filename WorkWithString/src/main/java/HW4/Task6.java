@@ -27,6 +27,7 @@ public class Task6 {
           compareStrings(compWord,userWord);
 
         } while (!(compWord.equals(userWord)));
+        scanner.close();
 
     }
     public static void compareStrings (String str1, String str2) {

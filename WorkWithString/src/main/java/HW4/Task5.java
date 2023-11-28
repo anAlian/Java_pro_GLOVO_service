@@ -14,13 +14,15 @@ public class Task5 {
     }
 
     public static boolean isPalindrome(String str) {
-        String rev = "";
+        StringBuilder output = new StringBuilder();
+
         boolean answer = false;
 
         for (int i = str.length() - 1; i >= 0; i--) {
-            rev = rev + str.charAt(i);
+
+            output.append(str.charAt(i));
         }
-        if (str.equals(rev)) {
+        if (str.equals(output.toString())) {
             answer = true;
         }
         return answer;
