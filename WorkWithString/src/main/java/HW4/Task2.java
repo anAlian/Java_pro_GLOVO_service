@@ -12,7 +12,7 @@ public class Task2 {
         char ch = scanner.next().charAt(0);
 
         scanner.close();
-        System.out.println("Number of occurrence of symbol "+ch +" in string "+ str + " is: "+ findSymbolOccurrence(str,ch));
+        System.out.println("Number of occurrence of Symbol "+ch +" in String "+ str + " is: "+ findSymbolOccurrence(str,ch));
 
 
     }

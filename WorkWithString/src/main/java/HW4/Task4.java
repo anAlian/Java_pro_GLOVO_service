@@ -6,7 +6,7 @@ public class Task4 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the string: ");
+        System.out.println("Enter the string: ");
         String textRev = scanner.nextLine();
         scanner.close();
 
