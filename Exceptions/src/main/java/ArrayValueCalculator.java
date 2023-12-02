@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 public class ArrayValueCalculator {
-    public static void main(String args[]) throws ArrayDataException, ArraySizeException {
+    public static void main(String[] args) throws ArrayDataException, ArraySizeException {
 
         Scanner scr = new Scanner(System.in);
         int n = 4;
