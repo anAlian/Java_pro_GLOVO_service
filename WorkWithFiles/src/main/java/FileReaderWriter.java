@@ -18,9 +18,9 @@ public class FileReaderWriter {
 
 
         File file = new File("src/main/java/files/log.txt");
-        if (file.exists()) {
-            file.delete();
-        }
+//        if (file.exists()) {
+//            file.delete();
+//        }
 
         FileWriter fileWriter = new FileWriter(file);
         fileWriter.write(text);
