@@ -1,0 +1,6 @@
+INFO: Starting JuniorCrudServiceApplication using Java 17.0.7
+DEBUG: User admin created
+WARNING: User admin created with warnings
+DEBUG: User user created
+INFO: Starting JuniorCrudService
+ERROR: something happen
