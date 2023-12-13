@@ -8,12 +8,12 @@ public class Task2 {
         Integer[] intArray = {1, 3, 7, 6, 9, 8};
         Character [] charArray = {'a','d'};
 
-        System.out.println(fromArrayToList(stringArray));
-        System.out.println(fromArrayToList(intArray));
-        System.out.println(fromArrayToList(charArray));
+        System.out.println(toList(stringArray));
+        System.out.println(toList(intArray));
+        System.out.println(toList(charArray));
 
     }
-    public static <T> List<T> fromArrayToList(T[] a) {
-        return new ArrayList<>(Arrays.asList(a));
+    public static <T> List<T> toList(T[] array) {
+        return new ArrayList<>(Arrays.asList(array));
     }
 }
