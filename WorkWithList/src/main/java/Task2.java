@@ -12,7 +12,6 @@ public class Task2 {
 
     }
     public static <T> List<T> fromArrayToList(T[] a) {
-        List<T> list = new ArrayList<>(Arrays.asList(a));
-        return list;
+        return new ArrayList<>(Arrays.asList(a));
     }
 }
