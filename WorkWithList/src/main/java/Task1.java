@@ -15,7 +15,6 @@ public class Task1 {
         System.out.println("Number of occurrence for " + word1 + ": " + countOccurrence(items, word1));
         System.out.println("Number of occurrence for " + word2 + ": " + countOccurrence(items, word2));
 
-
     }
 
     public static int countOccurrence(List<String> list, String word) {
