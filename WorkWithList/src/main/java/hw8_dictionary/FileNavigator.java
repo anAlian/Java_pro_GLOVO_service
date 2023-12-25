@@ -22,7 +22,7 @@ public class FileNavigator {
         filterBySize(filesList, (byte) 100);
         System.out.println("----------------------");
         sortBySize(filesList);
-        removeFiles(mapFiles, "/Documents/lessons/day1");
+        removeFiles(mapFiles, "/Documents/lessons/day5");
         System.out.println("----------------------");
         System.out.println("After removing: " + mapFiles);
 
@@ -53,7 +53,7 @@ public class FileNavigator {
 
 
     public static void filterBySize(List<FileData> filesList, byte size) {
-//        int fileSize;
+
         System.out.println("Files with size less than " + size + ":");
         for (FileData listEl : filesList) {
             byte fileSize = listEl.getSize();
