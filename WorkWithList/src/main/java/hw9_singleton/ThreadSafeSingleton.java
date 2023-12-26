@@ -1,7 +1,7 @@
 package hw9_singleton;
 
 public class ThreadSafeSingleton {
-    private static ThreadSafeSingleton myInstance;
+    private static volatile ThreadSafeSingleton myInstance;
     private String str = "Thread-safe singleton Object is created";
 
     private ThreadSafeSingleton() {
