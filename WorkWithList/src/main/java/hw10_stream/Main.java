@@ -74,7 +74,8 @@ public class Main {
                 .min(Comparator.comparingDouble(Product::getPrice))
                 .orElseThrow(() -> new NotFoundException("Продукт " + type + " не знайдено")));
 
-        System.out.println(prod.get().getType()+" "+prod.get().getPrice());
+        prod.ifPresent(product -> System.out.println(product.getType() + " " + product.getPrice()));
+
     }
 
 
