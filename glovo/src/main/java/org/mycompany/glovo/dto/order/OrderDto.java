@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,6 +13,6 @@ import java.util.List;
 public class OrderDto {
     private Integer id;
     private LocalDate date;
-    private  Double cost;
-    private List <ProductDto> products;
+    private Double cost;
+    private List<ProductDto> products;
 }

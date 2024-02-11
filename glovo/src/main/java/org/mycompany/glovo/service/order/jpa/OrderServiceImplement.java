@@ -15,10 +15,10 @@ import java.util.Map;
 @Slf4j
 @RequiredArgsConstructor
 public class OrderServiceImplement implements OrderService {
-    private final Map <Integer,OrderDto> orders = new HashMap<>();
+    private final Map<Integer, OrderDto> orders = new HashMap<>();
+
     @Override
     public OrderDto getOrderById(Integer id) {
-
         return orders.get(id);
     }
 
@@ -29,22 +29,22 @@ public class OrderServiceImplement implements OrderService {
 
     @Override
     public void save(OrderDto dto) {
-
-        orders.put(dto.getId(),dto);
-
+        orders.put(dto.getId(), dto);
     }
 
     @Override
-    public void updateAddProduct(Integer id, OrderDto dto) {
-        orders.putIfAbsent(id,dto);
-
+    public void updatePrice(Integer id, double newCost) {
+        for (Map.Entry<Integer, OrderDto> mapEl : orders.entrySet()) {
+            if (mapEl.getKey().equals(id)) {
+                OrderDto dto = mapEl.getValue();
+                dto.setCost(newCost);
+            }
+        }
     }
+
 
     @Override
     public void delete(Integer id) {
-        if (orders.containsKey(id)){
-            orders.remove(id);
-        }
-
+        orders.remove(id);
     }
 }
