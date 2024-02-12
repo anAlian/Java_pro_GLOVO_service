@@ -32,6 +32,12 @@ public class OrderServiceImplement implements OrderService {
         orders.put(dto.getId(), dto);
     }
 
+    public void updateOrder(Integer id, OrderDto newDto) {
+        if (orders.containsKey(id)) {
+            orders.put(id, newDto);
+        }
+    }
+
     @Override
     public void updatePrice(Integer id, double newCost) {
         for (Map.Entry<Integer, OrderDto> mapEl : orders.entrySet()) {

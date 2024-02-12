@@ -1,7 +1,5 @@
 package org.mycompany.glovo.dto.order;
-
 import lombok.*;
-
 import java.time.LocalDate;
 import java.util.List;
 

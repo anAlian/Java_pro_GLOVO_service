@@ -11,8 +11,9 @@ public interface OrderService {
 
     void save(OrderDto dto);
 
-
     void updatePrice(Integer id, double newCost);
+
+    void updateOrder(Integer id, OrderDto dto);
 
     void delete(Integer id);
 }
