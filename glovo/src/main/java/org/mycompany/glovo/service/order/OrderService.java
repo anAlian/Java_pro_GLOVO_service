@@ -1,7 +1,5 @@
 package org.mycompany.glovo.service.order;
-
 import org.mycompany.glovo.dto.order.OrderDto;
-
 import java.util.List;
 
 public interface OrderService {
@@ -9,11 +7,9 @@ public interface OrderService {
 
     List<OrderDto> getOrders();
 
-    void save(OrderDto dto);
+    OrderDto save(OrderDto dto);
 
-    void updatePrice(Integer id, double newCost);
-
-    void updateOrder(Integer id, OrderDto dto);
+    void updateOrder(Integer id, Double price);
 
     void delete(Integer id);
 }
