@@ -32,11 +32,9 @@ public class OrdersJDBCRepository {
         jdbcTemplate.update(SAVE_NEW_ORDER, dto.getId(), dto.getDate(), dto.getCost());
     }
 
-    public void updateOrder(Integer id, Double price) {
+    public void updateOrder(Integer id, OrderDto dto) {
 
-        OrderDto result = jdbcTemplate.queryForObject(SELECT_ORDER_BY_ID + id, new OrdersRowMapper());
-        assert result != null;
-        jdbcTemplate.update(UPDATE_ORDER,result.getDate(), price, result.getId());
+               jdbcTemplate.update(UPDATE_ORDER, dto.getDate(),dto.getCost(),id);
     }
 
     public void deleteById(Integer id) {

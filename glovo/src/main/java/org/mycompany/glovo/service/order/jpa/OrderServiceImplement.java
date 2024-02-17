@@ -26,15 +26,14 @@ public class OrderServiceImplement implements OrderService {
     }
 
     @Override
-    public OrderDto save(OrderDto dto) {
+    public void save(OrderDto dto) {
         ordersJDBCRepository.save(dto);
-        return dto;
     }
 
-    @Override
-    public void updateOrder(Integer id, Double price) {
-        ordersJDBCRepository.updateOrder(id,price);
-    }
+@Override
+    public void updateOrder (Integer id, OrderDto orderDto){
+        ordersJDBCRepository.updateOrder(id, orderDto);
+}
 
     @Override
     public void delete(Integer id) {

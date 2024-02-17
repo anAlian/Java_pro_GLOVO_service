@@ -23,8 +23,8 @@ public class TestControllerDB {
         return orderService.getOrderById(7);
     }
     @GetMapping("/save")
-    public OrderDto testServiceSave() {
-        return orderService.save(OrderDto.builder()
+    public void testServiceSave() {
+        orderService.save(OrderDto.builder()
                 .id(7)
                 .date(LocalDate.now())
                 .cost(117.0)
@@ -33,7 +33,12 @@ public class TestControllerDB {
     }
     @GetMapping("/upd")
     public void testServiceUpd() {
-        orderService.updateOrder(3,1415.0);
+        orderService.updateOrder(3,(OrderDto.builder()
+
+                .date(LocalDate.now())
+                .cost(1117.0)
+                .build()
+        ));
     }
     @GetMapping("/del")
     public void testServiceDel() {

@@ -7,9 +7,9 @@ public interface OrderService {
 
     List<OrderDto> getOrders();
 
-    OrderDto save(OrderDto dto);
+    void save(OrderDto dto);
 
-    void updateOrder(Integer id, Double price);
+    void updateOrder(Integer id, OrderDto orderDto);
 
     void delete(Integer id);
 }
