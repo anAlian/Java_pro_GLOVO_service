@@ -38,12 +38,6 @@ public class OrdersJDBCRepository {
         assert result != null;
         jdbcTemplate.update(UPDATE_ORDER,result.getDate(), price, result.getId());
     }
-//    public void updateOrder(Integer id, Double price) {
-//
-//        OrderDto result = jdbcTemplate.queryForObject(SELECT_ORDER_BY_ID + id, new OrdersRowMapper());
-//        assert result != null;
-//        jdbcTemplate.update(UPDATE_ORDER, result.getDate(), price, id);
-//    }
 
     public void deleteById(Integer id) {
         jdbcTemplate.update((DELETE_ORDER_BY_ID + id));

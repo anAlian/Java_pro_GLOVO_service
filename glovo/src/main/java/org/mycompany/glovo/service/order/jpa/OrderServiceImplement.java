@@ -33,27 +33,8 @@ public class OrderServiceImplement implements OrderService {
 
     @Override
     public void updateOrder(Integer id, Double price) {
-//        OrderDto dto = ordersJDBCRepository.getById(id);
-//        OrderDto newOrder = new OrderDto();
-//        newOrder.setId(id);
-//        newOrder.setDate(dto.getDate());
-//        newOrder.setCost(price);
-//        ordersJDBCRepository.deleteById(dto.getId());
         ordersJDBCRepository.updateOrder(id,price);
-
     }
-//    @Override
-//    public OrderDto updateOrder1(Integer id, Double price) {
-//        OrderDto dto = ordersJDBCRepository.getById(id);
-//        OrderDto newOrder = new OrderDto();
-//        newOrder.setId(id);
-//        newOrder.setDate(dto.getDate());
-//        newOrder.setCost(price);
-//        ordersJDBCRepository.deleteById(dto.getId());
-//        ordersJDBCRepository.save(newOrder);
-//        return newOrder;
-//    }
-
 
     @Override
     public void delete(Integer id) {

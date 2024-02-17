@@ -16,23 +16,20 @@ public class TestControllerDB {
     private final OrderService orderService;
     @GetMapping()
     public List<OrderDto> testService() {
-        List<OrderDto> orders = orderService.getOrders();
-        return orders;
+        return orderService.getOrders();
     }
     @GetMapping("/byId")
     public OrderDto testServiceById() {
-        OrderDto orders = orderService.getOrderById(7);
-        return orders;
+        return orderService.getOrderById(7);
     }
     @GetMapping("/save")
     public OrderDto testServiceSave() {
-        OrderDto orders = orderService.save(OrderDto.builder()
+        return orderService.save(OrderDto.builder()
                 .id(7)
                 .date(LocalDate.now())
                 .cost(117.0)
                 .build()
         );
-        return orders;
     }
     @GetMapping("/upd")
     public void testServiceUpd() {
