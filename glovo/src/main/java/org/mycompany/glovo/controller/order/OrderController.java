@@ -18,8 +18,7 @@ public class OrderController {
 
     @GetMapping()
     public List<OrderDto> getOrders() {
-        List<OrderDto> orderDtos = orderService.getOrders();
-        return orderDtos;
+        return orderService.getOrders();
     }
 
     @GetMapping("/{orderId}")

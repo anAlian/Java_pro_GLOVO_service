@@ -1,8 +1,5 @@
 package org.mycompany.glovo.service.order;
-
-import org.mycompany.glovo.dto.order.OrderDto;
 import org.mycompany.glovo.dto.order.ProductDto;
-
 import java.util.List;
 
 public interface ProductService {
