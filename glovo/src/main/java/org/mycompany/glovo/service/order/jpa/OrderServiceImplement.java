@@ -1,10 +1,12 @@
 package org.mycompany.glovo.service.order.jpa;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mycompany.glovo.dto.order.OrderDto;
 import org.mycompany.glovo.repository.jdbc.OrdersJDBCRepository;
 import org.mycompany.glovo.service.order.OrderService;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 
@@ -30,10 +32,10 @@ public class OrderServiceImplement implements OrderService {
         ordersJDBCRepository.save(dto);
     }
 
-@Override
-    public void updateOrder (Integer id, OrderDto orderDto){
+    @Override
+    public void updateOrder(Integer id, OrderDto orderDto) {
         ordersJDBCRepository.updateOrder(id, orderDto);
-}
+    }
 
     @Override
     public void delete(Integer id) {
