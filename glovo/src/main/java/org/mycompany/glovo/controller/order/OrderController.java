@@ -2,6 +2,7 @@ package org.mycompany.glovo.controller.order;
 
 import lombok.RequiredArgsConstructor;
 import org.mycompany.glovo.dto.order.OrderDto;
+import org.mycompany.glovo.dto.order.ProductDto;
 import org.mycompany.glovo.service.order.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +18,20 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping()
-    public List<OrderDto> getOrders() {
-        return orderService.getOrders();
+    public ResponseEntity<List<OrderDto>> getOrders() {
+        List<OrderDto> orders = orderService.getOrders();
+        if (orders != null) {
+            return ResponseEntity.ok(orders);
+        }
+        return (ResponseEntity <List<OrderDto>>) ResponseEntity.notFound();
+
     }
 
     @GetMapping("/{orderId}")
     public ResponseEntity<OrderDto> getOrderById(@PathVariable("orderId") Integer orderId) {
-        OrderDto orderDto = orderService.getOrderById(orderId);
-        if (orderDto != null) {
-            return ResponseEntity.ok(orderDto);
+        OrderDto orders = orderService.getOrderById(orderId);
+        if (orders != null) {
+            return ResponseEntity.ok(orders);
         }
         return (ResponseEntity<OrderDto>) ResponseEntity.notFound();
     }

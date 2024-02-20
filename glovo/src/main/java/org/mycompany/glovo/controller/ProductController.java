@@ -16,15 +16,19 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping()
-    public List<ProductDto> getProducts() {
-        return productService.getProducts();
+    public ResponseEntity<List<ProductDto>> getProducts() {
+        List<ProductDto> products = productService.getProducts();
+        if (products != null) {
+            return ResponseEntity.ok(products);
+        }
+        return (ResponseEntity <List<ProductDto>>) ResponseEntity.notFound();
     }
 
     @GetMapping("/{productId}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable("productId") Integer productId) {
-        ProductDto productDto = productService.getProductById(productId);
-        if (productDto != null) {
-            return ResponseEntity.ok(productDto);
+        ProductDto product = productService.getProductById(productId);
+        if (product != null) {
+            return ResponseEntity.ok(product);
         }
         return (ResponseEntity<ProductDto>) ResponseEntity.notFound();
     }
