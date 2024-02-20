@@ -2,7 +2,6 @@ package org.mycompany.glovo.controller.order;
 
 import lombok.RequiredArgsConstructor;
 import org.mycompany.glovo.dto.order.OrderDto;
-import org.mycompany.glovo.dto.order.ProductDto;
 import org.mycompany.glovo.service.order.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
