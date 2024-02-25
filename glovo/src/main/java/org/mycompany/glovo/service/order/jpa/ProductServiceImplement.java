@@ -2,14 +2,10 @@ package org.mycompany.glovo.service.order.jpa;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.mycompany.glovo.converter.OrderConverter;
 import org.mycompany.glovo.converter.ProductConverter;
-import org.mycompany.glovo.dto.order.OrderDto;
 import org.mycompany.glovo.dto.order.ProductDto;
-import org.mycompany.glovo.model.data.Order;
 import org.mycompany.glovo.model.data.Product;
 import org.mycompany.glovo.repository.data.ProductRepository;
-import org.mycompany.glovo.repository.jdbc.ProductJDBCRepository;
 import org.mycompany.glovo.service.order.ProductService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
