@@ -36,7 +36,6 @@ public class OrderConverter {
         order.setDate(dto.getDate());
         order.setCost(dto.getCost());
         order.setProducts(productsToModel(dto.getProducts()));
-        order.setDate(dto.getDate());
         return order;
     }
 
