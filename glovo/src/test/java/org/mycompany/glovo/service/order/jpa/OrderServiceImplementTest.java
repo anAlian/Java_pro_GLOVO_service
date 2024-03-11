@@ -119,9 +119,7 @@ class OrderServiceImplementTest {
 
     @Test
     void shouldNotReturnOrderById() {
-        assertThrows(NoSuchElementException.class, () -> {
-            testInstance.getOrderById(12);
-        });
+        assertThrows(NoSuchElementException.class, () -> testInstance.getOrderById(ORDER_ID));
     }
 
 
