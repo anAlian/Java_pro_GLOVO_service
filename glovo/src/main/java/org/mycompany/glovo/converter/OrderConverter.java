@@ -2,8 +2,8 @@ package org.mycompany.glovo.converter;
 
 import org.mycompany.glovo.dto.order.OrderDto;
 import org.mycompany.glovo.dto.order.ProductDto;
-import org.mycompany.glovo.model.data.Order;
-import org.mycompany.glovo.model.data.Product;
+import org.mycompany.glovo.model.Order;
+import org.mycompany.glovo.model.Product;
 import org.springframework.stereotype.Component;
 
 import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;

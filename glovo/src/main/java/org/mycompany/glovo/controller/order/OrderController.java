@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.mycompany.glovo.controller.responce.ApiResponse;
 import org.mycompany.glovo.dto.order.OrderDto;
-import org.mycompany.glovo.service.order.OrderService;
+import org.mycompany.glovo.service.OrderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

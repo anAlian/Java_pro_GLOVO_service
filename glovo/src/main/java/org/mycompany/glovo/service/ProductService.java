@@ -1,5 +1,4 @@
-package org.mycompany.glovo.service.order;
-
+package org.mycompany.glovo.service;
 import org.mycompany.glovo.dto.order.ProductDto;
 import org.springframework.data.domain.Pageable;
 

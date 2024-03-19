@@ -1,12 +1,13 @@
-package org.mycompany.glovo.service.order.jpa;
+package org.mycompany.glovo.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mycompany.glovo.converter.OrderConverter;
 import org.mycompany.glovo.dto.order.OrderDto;
-import org.mycompany.glovo.model.data.Order;
-import org.mycompany.glovo.repository.data.OrderRepository;
-import org.mycompany.glovo.service.order.OrderService;
+import org.mycompany.glovo.mappers.OrderMapper;
+import org.mycompany.glovo.model.Order;
+import org.mycompany.glovo.repository.OrderRepository;
+import org.mycompany.glovo.service.OrderService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -20,24 +21,24 @@ import java.util.List;
 public class OrderServiceImplement implements OrderService {
 
     private final OrderRepository orderRepository;
-    private final OrderConverter orderConverter;
+    private final OrderMapper orderMapper;
 
     @Override
     public OrderDto getOrderById(Integer id) {
         Order order = orderRepository.findById(id).orElseThrow();
-        return orderConverter.fromModel(order);
+        return orderMapper.orderToOrderDto(order);
     }
 
     @Override
     public List<OrderDto> getOrders(Pageable pageable) {
         Page<Order> page = orderRepository.findAll(pageable);
         List<Order> orders = page.getContent();
-        return orderConverter.fromModel(orders);
+        return orderMapper.toOrderDtoList(orders);
     }
 
     @Override
     public void save(OrderDto dto) {
-        Order order = orderConverter.toModel(dto);
+        Order order = orderMapper.orderDtoToOrder(dto);
         orderRepository.save(order);
         log.debug("Order save: " + order);
     }
@@ -46,9 +47,11 @@ public class OrderServiceImplement implements OrderService {
     public void updateOrder(Integer id, OrderDto orderDto) {
 
         Order old = orderRepository.findById(id).orElseThrow();
-        Order updated = orderConverter.toModel(old, orderDto);
-        orderRepository.save(updated);
-        log.debug("Order updated: " + updated);
+        Order toOrder = orderMapper.orderDtoToOrder(orderDto);
+
+        orderMapper.update(old,toOrder);
+        orderRepository.save(toOrder);
+        log.debug("Order updated: " + toOrder);
     }
 
     @Override

@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class DatabaseBeanConfig {
-    @Bean
+//    @Bean
     public DataSource dataSource(){
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");

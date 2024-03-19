@@ -5,7 +5,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.mycompany.glovo.controller.order.AppConstants;
 import org.mycompany.glovo.controller.responce.ApiResponse;
 import org.mycompany.glovo.dto.order.ProductDto;
-import org.mycompany.glovo.service.order.ProductService;
+import org.mycompany.glovo.service.ProductService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

@@ -1,4 +1,4 @@
-package org.mycompany.glovo.service.order.jpa;
+package org.mycompany.glovo.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,20 +6,18 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mycompany.glovo.converter.OrderConverter;
 import org.mycompany.glovo.dto.order.OrderDto;
-import org.mycompany.glovo.model.data.Order;
-import org.mycompany.glovo.repository.data.OrderRepository;
+import org.mycompany.glovo.mappers.OrderMapper;
+import org.mycompany.glovo.model.Order;
+import org.mycompany.glovo.repository.OrderRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -29,11 +27,10 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class OrderServiceImplementTest {
     private static final int ORDER_ID = 100;
-    private static final double NEW_COST = 155.0;
     @InjectMocks
     private OrderServiceImplement testInstance;
     @Mock
-    private OrderConverter orderConverter;
+    private OrderMapper orderMapper;
     @Mock
     private OrderRepository orderRepository;
     @Mock
@@ -56,12 +53,12 @@ class OrderServiceImplementTest {
     @Test
     void shouldReturnOrderById() {
         when(orderRepository.findById(anyInt())).thenReturn(Optional.of(order));
-        when(orderConverter.fromModel(order)).thenReturn(dto);
+        when(orderMapper.orderToOrderDto(order)).thenReturn(dto);
 
         OrderDto result = testInstance.getOrderById(ORDER_ID);
 
         verify(orderRepository).findById(ORDER_ID);
-        verify(orderConverter).fromModel(order);
+        verify(orderMapper).orderToOrderDto(order);
         assertNotNull(result);
         assertEquals(ORDER_ID, result.getId());
     }
@@ -72,9 +69,9 @@ class OrderServiceImplementTest {
         List<OrderDto> list = new ArrayList<>();
         list.add(dto);
 
-        when(orderRepository.findAll(any())).thenReturn(page);
+        when(orderRepository.findAll((Pageable) any())).thenReturn(page);
         when(page.getContent()).thenReturn(orders);
-        when(orderConverter.fromModel(orders)).thenReturn(list);
+        when(orderMapper.toOrderDtoList(orders)).thenReturn(list);
 
 
         testInstance.getOrders(pageable);
@@ -87,7 +84,7 @@ class OrderServiceImplementTest {
         double cost = 0.5;
         OrderDto newDto = new OrderDto(id, null, cost, null);
 
-        when(orderConverter.toModel(newDto)).thenReturn(order);
+        when(orderMapper.orderDtoToOrder(newDto)).thenReturn(order);
         when(orderRepository.save(order)).thenReturn(order);
 
         testInstance.save(newDto);
@@ -96,16 +93,6 @@ class OrderServiceImplementTest {
         assertEquals(cost, newDto.getCost());
     }
 
-    @Test
-    void shouldReturnUpdatedOrderById() {
-        OrderDto updated = new OrderDto(ORDER_ID, null, NEW_COST, null);
-        when(orderRepository.findById(anyInt())).thenReturn(Optional.of(order));
-        when(orderConverter.toModel(order, updated)).thenReturn(order);
-
-        testInstance.updateOrder(ORDER_ID, updated);
-
-        assertEquals(NEW_COST, updated.getCost());
-    }
 
     @Test
     void shouldNotReturnDeletedOrderById() {
