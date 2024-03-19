@@ -3,7 +3,6 @@ package org.mycompany.glovo.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mycompany.glovo.dto.order.ProductDto;
-import org.mycompany.glovo.model.Order;
 import org.mycompany.glovo.model.Product;
 
 import java.util.List;

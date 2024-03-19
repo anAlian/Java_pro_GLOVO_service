@@ -2,18 +2,15 @@ package org.mycompany.glovo.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.mycompany.glovo.converter.OrderConverter;
 import org.mycompany.glovo.dto.order.OrderDto;
 import org.mycompany.glovo.mappers.OrderMapper;
 import org.mycompany.glovo.model.Order;
 import org.mycompany.glovo.repository.OrderRepository;
-import org.mycompany.glovo.service.OrderService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 
 @Service
 @Slf4j
